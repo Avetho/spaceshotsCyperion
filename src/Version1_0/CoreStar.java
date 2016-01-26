@@ -10,7 +10,7 @@ import javax.sound.sampled.*;
 
 ////ABOVE IS IMPORTS ONLY, NO OTHER CODE PLZ////////////////////////////////////
 
-public class CoreStar extends JFrame {
+class CoreStar extends JFrame {
     public static Stack vP1, vP2, vAILF, vAIMF, vAIHF, vAIMB, vAICD, vBCS, vBT1, vBT2, vBT3, vBT4, vBT5, vBT6, vBT7, vBT8, vCLF1, vCLF2;
     public static double nP1Rot=0, nP2Rot=0, nAILFRot=0, nAIMFRot=0, nAIHFRot=0, nAIMBRot=0, nAICDRot=0, nBCSRot=0, nCLF1Rot=0, nCLF2Rot=0;
     public static int nShipSelectP1=1, nShipSelectP2=1, nAIShipSelect=1, nAIDiff=1;
@@ -19,23 +19,29 @@ public class CoreStar extends JFrame {
     public static double dLFHp=100, dMFHp=200, dHFHp=500, dMBHp=250, dCDHp=300, dCWPHp=2500, dOWPHp=200, dCLFHp=250;
     public static double dP1Hp, dP2Hp, dAIHp, dBossCoreHp, dBossOWP1Hp, dBossOWP2Hp, dBossOWP3Hp, dBossOWP4Hp, dBossOWP5Hp, dBossOWP6Hp, dBossOWP7Hp, dBossOWP8Hp, dBossCLF1Hp, dBossCLF2Hp;
     
-    static JFrame frame = new JFrame("FrameDemo");
-
-    public Setup() throws NullPointerException {
+    static JFrame frame = new JFrame("Cyperion Space Battles");
+    
+    public void Setup() {
+        JPanel game = new JPanel();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.getContentPane().add(null, BorderLayout.CENTER);
+        frame.getContentPane().add(game, BorderLayout.CENTER);
         frame.pack();
         frame.setVisible(true);
-        addKeyListener(this);
+        setSize(640, 360);
+        setTitle("Space Battle (By: Philip G. and Samuel M.)");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        getContentPane().add(game, BorderLayout.CENTER);
+        pack();
+        setVisible(true);
     }
     
-    
-        
-//        setSize(640, 360);
-//        setTitle("Space Battle (By: Philip G. and Samuel M.)");
-//        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    public static KeyEvent e;
     
     public static void main(String[] args) throws FileNotFoundException {
+        
+        //Setup setup = new Setup();
+        
+        //Setup();
         
         PrintWriter clearQSave = new PrintWriter("QuickSave.txt");
         clearQSave.print("");
@@ -58,6 +64,7 @@ public class CoreStar extends JFrame {
         PrintWriter saveGameSlot5 = new PrintWriter("Save5.txt");
         
         while(true){
+            
             if(nShipSelectP1==1){
                 Player1.LFighter(e);
             }
@@ -274,6 +281,24 @@ public class CoreStar extends JFrame {
             System.out.println("BOSS-CWS-CLF2-Pos: " + vCLF2);
             System.out.println("-------------------------------------------------");
         }
+    }
+}
+
+class keyPressed implements KeyListener{
+    //addKeyListener(this);
+    @Override
+    public void keyTyped(KeyEvent e){
+        
+    }
+    
+    @Override
+    public void keyPressed(KeyEvent e){
+        
+    }
+    
+    @Override
+    public void keyReleased(KeyEvent e){
+        
     }
 }
 
